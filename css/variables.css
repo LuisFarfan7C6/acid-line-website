@@ -48,6 +48,13 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: "Titillium ExtraLight";
+    src: url(/assets/fonts/Titillium_Web/TitilliumWeb-ExtraLight.ttf);
+    font-weight: 200;
+    font-style: normal;
+}
+
 :root {
     --home-btn-color: black;
     --home-btn-hover-color: rgb(50, 50, 50);

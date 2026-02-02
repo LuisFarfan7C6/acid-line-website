@@ -1,8 +1,28 @@
-const btnListen = document.querySelector('#btn-listen');
-const modalCerrar = document.querySelectorAll('.modal-close-btn');
+/*-- DOM ELEMENTS --*/
 const modalListen = document.querySelector('#modal-listen');
 const iframe = document.querySelector('#hypedditFrame');
+const btnOpenListen = document.querySelector('#btn-listen');
+const btnCloseListen = document.querySelector('#btn-close-modal');
 
+/*--EVENT LISTENERS --*/
+btnOpenListen.addEventListener('click', openModal);
+
+btnCloseListen.addEventListener('click', closeModal);
+
+document.addEventListener('keydown', (e) => {
+    if(e.key === "Escape" && modalListen.classList.contains('active')){
+        closeModal();
+    }
+});
+
+modalListen.addEventListener('click', (e) => {
+    if(e.target === modalListen){
+        closeModal();
+    }
+});
+
+
+/*-- FUNCTIONS --*/
 function openModal(){
     if(!iframe.src){
         iframe.src = "https://hypeddit.com/sbl5rn";
@@ -12,8 +32,10 @@ function openModal(){
 }
 
 function closeModal(){
+    if (iframe)
+        iframe.src = iframe.src;
     modalListen.classList.remove('active');
-    document.body.style.overflow = 'auto';
-}
 
-btnListen.addEventListener('click', openModal);
+    if (window.lastFocusedElement)
+        window.lastFocusedElement.focus();
+}

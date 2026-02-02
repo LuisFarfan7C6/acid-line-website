@@ -8,12 +8,15 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
+    <div class="background"></div>
     <main>
         <section id="title-container">
             <h1>acid line</h1>
         </section>
         <section id="central-container">
-            <h1>Liquid Moon Drops</h1>
+            <div class="glitch-wrapper">
+                <h1>Liquid Moon Drops</h1>
+            </div>          
             <p>Nuevo single ya disponible</p>
             <button class="btn-main-action">INICIO</button>
             <button class="btn-main-action" id="btn-listen">ESCUCHAR</button>
@@ -32,13 +35,16 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h2>Escuchar Liquid Moon Drops</h2>
-                <span class="modal-close-btn">&times;</span>
+                <button id="btn-close-modal" class="close-btn" aria-label="Close listen modal" type="button">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
             <div class="modal-body">
-                <iframe id="hypedditFrame" src="https://hypeddit.com/sbl5rn" allow="autoplay"></iframe>
-            </div> 
+                <iframe id="hypedditFrame" src="https://hypeddit.com/sbl5rn" allow="autoplay" frameborder="0"></iframe>
+            </div>
         </div>
     </div>
     <script src="js/main.js"></script>
 </body>
+    
 </html>

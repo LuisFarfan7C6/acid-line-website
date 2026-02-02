@@ -5,12 +5,28 @@
 }
 
 body {
-    background-image: url("/assets/images/backgrounds/lmd\ artwork.webp");
-    background-size: cover;
     text-align: center;
     color: white;
-    font-family: "Titillium Light";
+    font-family: "Titillium ExtraLight";
     letter-spacing: 3px;
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+
+    background-image: url("/assets/images/backgrounds/lmd\ artwork.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    animation: smoothZoom 10s ease-in-out infinite alternate;
+    will-change: transform;
+    transform: translateZ();
 }
 
 section {
@@ -72,6 +88,63 @@ section {
     text-shadow: black 2px 2px 5px;
 }
 
+.glitch-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.glitch-wrapper h1 {
+  position: relative;
+  font-size: 4rem;
+  font-weight: bold;
+  color: #fff;
+  letter-spacing: 0.05em;
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+.glitch-wrapper h1::before,
+.glitch-wrapper h1::after {
+  color: white;
+  content: "Liquid Moon Drops";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  top: 0;
+}
+
+#central-container h1::before {
+  content: "Liquid Moon Drops";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: #ff0000;
+  mix-blend-mode: screen;
+  will-change: transform, clip-path;
+  transform: translateZ(0);
+  animation: glitch-anim-1 2.5s infinite linear alternate-reverse;
+}
+
+#central-container h1::after {
+  content: "Liquid Moon Drops";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: #00ffff;
+  mix-blend-mode: screen; 
+  will-change: transform, clip-path;
+  transform: translateZ(0);
+  animation: glitch-anim-2 3s infinite linear alternate-reverse;
+}
+
 #icons-container {
     display: flex;
     justify-content: center;
@@ -103,6 +176,7 @@ section {
     max-height: 700px;
     border-radius: 15px;
     overflow: hidden;
+    position: relative;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
     display: flex;
     flex-direction: column;
@@ -114,7 +188,7 @@ section {
     color: white;
     padding: 20px 40px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
 }
 
@@ -123,37 +197,117 @@ section {
     font-size: 1.5rem;
 }
 
-.btn-close {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 2rem;
-    cursor: pointer;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    /*transition: background 0.3s ease;*/
-}
-
-.btn-close:hover {
-    background: rgba(255, 255, 255, 0.2);
-}
-
 .modal-body {
     flex: 1;
     padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
 }
 
 .modal-body iframe {
-    width: 100%;
+    width: calc(100% + 17px);
     height: 100%;
     border: none;
+    display: block;
+    scrollbar-width: none;
+    overflow-y: scroll;
 }
 
-.modal-content ::-webkit-scrollbar-button {
+.modal-body iframe::-webkit-scrollbar {
     display: none;
-    background-color: red;
+    width: 0;
+    height: 0;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 32px;
+  color: #aaa;
+  cursor: pointer;
+  padding: 0px 5px;
+  line-height: 1;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.close-btn:hover {
+  color: #fff;
+  transform: scale(1.1);
+}
+
+.close-btn:focus {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+  color: #fff;
+}
+
+
+/*--- Animations ---*/
+ @keyframes smoothZoom {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes glitch-animation-1 {
+  0% {
+    clip-path: inset(40% 0 61% 0);
+    transform: translate(0);
+  }
+  20% {
+    clip-path: inset(92% 0 1% 0);
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    clip-path: inset(43% 0 1% 0);
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    clip-path: inset(25% 0 58% 0);
+    transform: translate(2px, 2px);
+  }
+  80% {
+    clip-path: inset(54% 0 7% 0);
+    transform: translate(2px, -2px);
+  }
+  100% {
+    clip-path: inset(58% 0 43% 0);
+    transform: translate(-2px, 2px);
+  }
+}
+
+@keyframes glitch-animation-2 {
+  0% {
+    clip-path: inset(65% 0 15% 0);
+    transform: translate(0);
+  }
+  20% {
+    clip-path: inset(26% 0 64% 0);
+    transform: translate(2px, -2px);
+  }
+  40% {
+    clip-path: inset(85% 0 5% 0);
+    transform: translate(2px, 2px);
+  }
+  60% {
+    clip-path: inset(14% 0 76% 0);
+    transform: translate(-2px, -2px);
+  }
+  80% {
+    clip-path: inset(63% 0 27% 0);
+    transform: translate(-2px, 2px);
+  }
+  100% {
+    clip-path: inset(32% 0 48% 0);
+    transform: translate(2px, -2px);
+  }
 }
