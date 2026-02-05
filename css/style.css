@@ -1,224 +1,180 @@
 @import "variables.css";
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    text-align: center;
-    color: white;
-    font-family: "Titillium ExtraLight";
-    letter-spacing: 3px;
+  text-align: center;
+  color: white;
+  font-family: "Titillium ExtraLight";
+  letter-spacing: 3px;
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: var(--spacing-10);
+  display: flex;
 }
 
 .background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
 
-    background-image: url("/assets/images/backgrounds/lmd\ artwork.webp");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+  background-image: url("/assets/images/backgrounds/lmd\ artwork.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 
-    animation: smoothZoom 10s ease-in-out infinite alternate;
-    will-change: transform;
-    transform: translateZ();
+  animation: smoothZoom 10s ease-in-out infinite alternate;
+  will-change: transform;
+  transform: translateZ();
 }
 
-section {
-    justify-content: center;
-    margin: 100px;
+main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
+
+/* section {
+} */
 
 .btn-main-action {
-    border-radius: 5%;
-    background-color: var(--home-btn-color);
-    color: white;
-    font-weight: 900;
-    border: none;
-    height: 40px;
-    width: 120px;
-    margin: 20px;
+  border-radius: 5%;
+  background-color: var(--home-btn-color);
+  color: white;
+  font-weight: 900;
+  border: none;
+  height: 40px;
+  width: 120px;
+  margin: var(--spacing-6);
 }
 
 .btn-main-action:hover {
-    background-color: var(--home-btn-hover-color);
-    cursor: pointer;
+  background-color: var(--home-btn-hover-color);
+  cursor: pointer;
 }
 
 .icon-social-container {
-    background-color: var(--home-btn-color);
-    width: 70px;
-    height: 70px;
-    margin: 10px;
-    border-radius: 50%;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
+  background-color: var(--home-btn-color);
+  width: 70px;
+  height: 70px;
+  margin: 0 var(--spacing-4);
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
 }
 
 .icon-social {
-    fill: white;
+  fill: white;
 }
 
 .icon-social-container:hover {
-    background-color: var(--home-btn-hover-color);
+  background-color: var(--home-btn-hover-color);
 }
 
 #title-container {
-    justify-content: center;
-    align-items: center;
-    font-family: "Aqua Grotesque";
-    margin-top: 200px;
+  align-items: center;
+  font-family: "Aqua Grotesque";
+  margin: var(--spacing-4) 0;
 }
 
 #title-container h1 {
-    font-size: 100px;
-    font-weight: 100;
-    text-shadow: black 4px 4px 8px;
+  font-size: 100px;
+  font-weight: 100;
+  text-shadow: black 4px 4px 8px;
+  margin: 0;
+  line-height: 0.6;
 }
 
 #central-container {
-    font-size: 30px;
-    font-weight: 900;
-    text-shadow: black 2px 2px 5px;
-}
-
-.glitch-wrapper {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.glitch-wrapper h1 {
-  position: relative;
-  font-size: 4rem;
-  font-weight: bold;
-  color: #fff;
-  letter-spacing: 0.05em;
-  will-change: transform;
-  transform: translateZ(0);
-}
-
-.glitch-wrapper h1::before,
-.glitch-wrapper h1::after {
-  color: white;
-  content: "Liquid Moon Drops";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  top: 0;
-}
-
-#central-container h1::before {
-  content: "Liquid Moon Drops";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  color: #ff0000;
-  mix-blend-mode: screen;
-  will-change: transform, clip-path;
-  transform: translateZ(0);
-  animation: glitch-anim-1 2.5s infinite linear alternate-reverse;
-}
-
-#central-container h1::after {
-  content: "Liquid Moon Drops";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  color: #00ffff;
-  mix-blend-mode: screen; 
-  will-change: transform, clip-path;
-  transform: translateZ(0);
-  animation: glitch-anim-2 3s infinite linear alternate-reverse;
+  font-size: 30px;
+  font-weight: 900;
+  text-shadow: black 2px 2px 5px;
+  margin: var(--spacing-8) 0;
 }
 
 #icons-container {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
+  margin: var(--spacing-4) 0;
 }
 
-/*--- Modal ---*/
+/*----- Modal -----*/
 #modal-listen {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    z-index: 1000;
-    justify-content: center;
-    align-items: center;
-    animation: fadeIn 0.3s ease;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.3s ease;
 }
 
 #modal-listen.active {
-    display: flex;
+  display: flex;
 }
 
 .modal-content {
-    width: 90%;
-    max-width: 500px;
-    height: 80vh;
-    max-height: 700px;
-    border-radius: 15px;
-    overflow: hidden;
-    position: relative;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-    display: flex;
-    flex-direction: column;
-    animation: slideUp 0.3s ease;
+  width: 90%;
+  max-width: 500px;
+  height: 80vh;
+  max-height: 700px;
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  animation: slideUp 0.3s ease;
 }
 
 .modal-header {
-    background: #26333F;
-    color: white;
-    padding: 20px 40px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+  background: #26333F;
+  color: white;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .modal-header h2 {
-    margin: 0;
-    font-size: 1.5rem;
+  margin: 0;
+  font-size: 1.5rem;
 }
 
 .modal-body {
-    flex: 1;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    position: relative;
+  flex: 1;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
 }
 
 .modal-body iframe {
-    width: calc(100% + 17px);
-    height: 100%;
-    border: none;
-    display: block;
-    scrollbar-width: none;
-    overflow-y: scroll;
+  width: calc(100% + 17px);
+  height: 100%;
+  border: none;
+  display: block;
+  scrollbar-width: none;
+  overflow-y: scroll;
 }
 
 .modal-body iframe::-webkit-scrollbar {
-    display: none;
-    width: 0;
-    height: 0;
+  display: none;
+  width: 0;
+  height: 0;
 }
 
 .close-btn {
@@ -247,67 +203,183 @@ section {
   color: #fff;
 }
 
+/*----- EFECTO -----*/
+.reveal-text {
+  margin: 0px;
+  font-size: 5.5rem;
+  font-weight: bold;
+  position: relative;
+  display: inline-block;
+  color: #fff;
+  opacity: 0;
+
+  animation:
+    fadeInIrregular 7s steps(45) forwards infinite alternate,
+    flicker 7s steps(4) forwards infinite alternate,
+    glowFadeIn 2.5s ease-out forwards;
+
+  text-shadow: none;
+}
+
+.reveal-text:hover {
+  animation-play-state: paused;
+  cursor: default;
+}
 
 /*--- Animations ---*/
- @keyframes smoothZoom {
-    0% {
-        transform: scale(1);
-    }
-    100% {
-        transform: scale(1.05);
-    }
-}
-
-@keyframes glitch-animation-1 {
+@keyframes smoothZoom {
   0% {
-    clip-path: inset(40% 0 61% 0);
-    transform: translate(0);
+    transform: scale(1);
   }
-  20% {
-    clip-path: inset(92% 0 1% 0);
-    transform: translate(-2px, 2px);
-  }
-  40% {
-    clip-path: inset(43% 0 1% 0);
-    transform: translate(-2px, -2px);
-  }
-  60% {
-    clip-path: inset(25% 0 58% 0);
-    transform: translate(2px, 2px);
-  }
-  80% {
-    clip-path: inset(54% 0 7% 0);
-    transform: translate(2px, -2px);
-  }
+
   100% {
-    clip-path: inset(58% 0 43% 0);
-    transform: translate(-2px, 2px);
+    transform: scale(1.05);
   }
 }
 
-@keyframes glitch-animation-2 {
+@keyframes fadeInIrregular {
   0% {
-    clip-path: inset(65% 0 15% 0);
-    transform: translate(0);
+    opacity: 0;
   }
+
+  4% {
+    opacity: 0.1;
+  }
+
+  8% {
+    opacity: 0.05;
+  }
+
+  12% {
+    opacity: 0.2;
+  }
+
+  16% {
+    opacity: 0.15;
+  }
+
   20% {
-    clip-path: inset(26% 0 64% 0);
-    transform: translate(2px, -2px);
+    opacity: 0.3;
   }
+
+  24% {
+    opacity: 0.25;
+  }
+
+  28% {
+    opacity: 0.4;
+  }
+
+  32% {
+    opacity: 0.35;
+  }
+
+  36% {
+    opacity: 0.5;
+  }
+
   40% {
-    clip-path: inset(85% 0 5% 0);
-    transform: translate(2px, 2px);
+    opacity: 0.45;
   }
+
+  44% {
+    opacity: 0.6;
+  }
+
+  48% {
+    opacity: 0.55;
+  }
+
+  52% {
+    opacity: 0.7;
+  }
+
+  56% {
+    opacity: 0.65;
+  }
+
   60% {
-    clip-path: inset(14% 0 76% 0);
-    transform: translate(-2px, -2px);
+    opacity: 0.8;
   }
+
+  64% {
+    opacity: 0.75;
+  }
+
+  68% {
+    opacity: 0.85;
+  }
+
+  72% {
+    opacity: 0.9;
+  }
+
+  76% {
+    opacity: 0.95;
+  }
+
   80% {
-    clip-path: inset(63% 0 27% 0);
-    transform: translate(-2px, 2px);
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes flicker {
+
+  0%,
+  100% {
+    filter: blur(0px);
+  }
+
+  10% {
+    filter: blur(2px);
+  }
+
+  20% {
+    filter: blur(0px);
+  }
+
+  30% {
+    filter: blur(3px);
+  }
+
+  40% {
+    filter: blur(0px);
+  }
+
+  50% {
+    filter: blur(2px);
+  }
+
+  60% {
+    filter: blur(0px);
+  }
+
+  70% {
+    filter: blur(1px);
+  }
+
+  80% {
+    filter: blur(0px);
+  }
+
+  90% {
+    filter: blur(0px);
+  }
+}
+
+@keyframes glowFadeIn {
+  0% {
+    text-shadow: none;
   }
   100% {
-    clip-path: inset(32% 0 48% 0);
-    transform: translate(2px, -2px);
+    text-shadow: 
+      0 0 10px rgba(150, 220, 255, 0.7),
+      0 0 20px rgba(100, 200, 255, 0.5),
+      0 0 30px rgba(100, 200, 255, 0.3),
+      0 0 40px rgba(50, 150, 255, 0.2);
   }
 }
