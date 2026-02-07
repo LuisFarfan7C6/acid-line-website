@@ -58,7 +58,8 @@
 
 :root {
     --home-btn-color: black;
-    --home-btn-hover-color: rgb(50, 50, 50);
+    --home-btn-hover-color: white;
+    /* --home-btn-hover-color: rgb(50, 50, 50); */
 
     --spacing-1: 2px;
     --spacing-2: 4px;

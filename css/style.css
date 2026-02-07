@@ -41,44 +41,7 @@ main {
   justify-content: center;
 }
 
-/* section {
-} */
-
-.btn-main-action {
-  border-radius: 5%;
-  background-color: var(--home-btn-color);
-  color: white;
-  font-weight: 900;
-  border: none;
-  height: 40px;
-  width: 120px;
-  margin: var(--spacing-6);
-}
-
-.btn-main-action:hover {
-  background-color: var(--home-btn-hover-color);
-  cursor: pointer;
-}
-
-.icon-social-container {
-  background-color: var(--home-btn-color);
-  width: 70px;
-  height: 70px;
-  margin: 0 var(--spacing-4);
-  border-radius: 50%;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-}
-
-.icon-social {
-  fill: white;
-}
-
-.icon-social-container:hover {
-  background-color: var(--home-btn-hover-color);
-}
-
+/*----- TITLE CONTAINER -----*/
 #title-container {
   align-items: center;
   font-family: "Aqua Grotesque";
@@ -93,6 +56,7 @@ main {
   line-height: 0.6;
 }
 
+/*----- CENTRAL CONTAINER -----*/
 #central-container {
   font-size: 30px;
   font-weight: 900;
@@ -100,13 +64,82 @@ main {
   margin: var(--spacing-8) 0;
 }
 
+.single-title {
+  margin: 0px;
+  font-size: 5.5rem;
+  font-weight: bold;
+  position: relative;
+  display: inline-block;
+  color: #fff;
+  opacity: 0;
+
+  animation:
+    fadeInIrregular 7s steps(45) forwards infinite alternate,
+    flicker 7s steps(4) forwards infinite alternate,
+    glowFadeIn 2.5s ease-out forwards;
+
+  text-shadow: none;
+}
+
+.single-title:hover {
+  animation-play-state: paused;
+  cursor: default;
+}
+
+.btn-main-action {
+  border-radius: 5%;
+  background-color: var(--home-btn-color);
+  color: white;
+  font-weight: 900;
+  border: none;
+  height: 50px;
+  width: 150px;
+  margin: var(--spacing-6);
+  font-size: 15px;
+  letter-spacing: var(--spacing-1);
+  transition: background-color 0.5s ease;
+}
+
+.btn-main-action:hover {
+  background-color: var(--home-btn-hover-color);
+  cursor: pointer;
+  color: black;
+  transition: color 0.5s ease;
+}
+
+/*----- ICONS CONTAINER -----*/
 #icons-container {
   display: flex;
   justify-content: center;
   margin: var(--spacing-4) 0;
 }
 
-/*----- Modal -----*/
+.icon-social-container {
+  background-color: var(--home-btn-color);
+  width: var(--spacing-9);
+  height: var(--spacing-9);
+  margin: 0 var(--spacing-4);
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  padding: var(--spacing-5);
+  transition: background-color 0.3s ease;
+}
+
+.icon-social-container:hover {
+  background-color: var(--home-btn-hover-color);
+}
+
+.icon-social {
+  fill: white;
+  transition: fill 0.3s ease;
+}
+
+.icon-social-container:hover .icon-social {
+  fill: black;
+}
+
+/*----- MODAL LISTEN -----*/
 #modal-listen {
   display: none;
   position: fixed;
@@ -203,30 +236,7 @@ main {
   color: #fff;
 }
 
-/*----- EFECTO -----*/
-.reveal-text {
-  margin: 0px;
-  font-size: 5.5rem;
-  font-weight: bold;
-  position: relative;
-  display: inline-block;
-  color: #fff;
-  opacity: 0;
-
-  animation:
-    fadeInIrregular 7s steps(45) forwards infinite alternate,
-    flicker 7s steps(4) forwards infinite alternate,
-    glowFadeIn 2.5s ease-out forwards;
-
-  text-shadow: none;
-}
-
-.reveal-text:hover {
-  animation-play-state: paused;
-  cursor: default;
-}
-
-/*--- Animations ---*/
+/*----- ANIMATIONS -----*/
 @keyframes smoothZoom {
   0% {
     transform: scale(1);
