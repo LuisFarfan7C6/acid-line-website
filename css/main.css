@@ -1,0 +1,17 @@
+@import "variables.css";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  text-align: center;
+  color: white;
+  font-family: "Titillium ExtraLight";
+  letter-spacing: 3px;
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: var(--spacing-10);
+  display: flex;
+}
