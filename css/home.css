@@ -21,9 +21,13 @@ main {
     display: flex;
     flex-direction: row;
     padding: 30px 150px;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.3);
     justify-content: space-between;
     box-shadow: -10px 10px 20px 1px rgba(255, 255, 255, 0.1);
+
+    backdrop-filter: blur(16px);
+    height: 15%;
+    mask-image: linear-gradient(to bottom, black 0% 50%, transparent 50% 100%);
 }
 
 .navbar ul{
@@ -62,12 +66,12 @@ main {
 
 #bio-section {
     padding:  0 150px;
-    height: 100vh;
+    height: calc(100vh - 130px);
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-content: center;
     align-items: center;
-    gap: 50px;  
+    gap: 50px;
 }
 
 .bio-container {
@@ -97,7 +101,7 @@ main {
 
 #single-section {
     padding:  0 150px;
-    height: 100vh;
+    height: calc(100vh - 130px);
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-content: center;
@@ -126,4 +130,40 @@ main {
     display: flex;
     flex-direction: grid;
     gap: 30px;
+}
+
+/*----- SOCIAL SECTION -----*/
+#social-section {
+    padding:  0 150px;
+    height: calc(100vh - 130px);
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.instagram-feed {
+    align-content: center;
+}
+
+behold-popover-gallery {
+    letter-spacing: 0px;
+    text-align: left;
+}
+
+behold-branding {
+
+}
+
+/*----- FOOTER -----*/
+footer {
+    margin: 0;
+    padding: 30px 150px;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+footer p {
+    margin: 0;
 }

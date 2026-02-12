@@ -19,8 +19,8 @@
     <header>
         <nav class="navbar">
             <ul>
-                <li><a href="/index.html">Último lanzamiento</a></li>
-                <li><a href="">Concepto</a></li>
+                <li><a href="">Bio</a></li>
+                <li><a href="/index.html">Lanzamientos</a></li> 
                 <li><a href="">Comunidad</a></li>
             </ul>
             <h1 class="navbar-title">acid line</h1>
@@ -112,12 +112,21 @@
                 </div>
             </div>
         </section>
-        <section>
-            <h1>Seccion3</h1>
+        <section id="social-section">
+            <div class="instagram-feed">
+                <behold-widget feed-id=""></behold-widget>
+            </div>
         </section>
     </main>
     <footer>
         <p>© 2026 Acid Line. Todos los derechos reservados.</p>
     </footer>
+    <script>
+        (() => {
+            const d = document, s = d.createElement("script"); s.type = "module";
+            s.src = "https://w.behold.so/widget.js"; d.head.append(s);
+        })();
+    </script>
+    <script src="js/home.js"></script>
 </body>
 </html>
