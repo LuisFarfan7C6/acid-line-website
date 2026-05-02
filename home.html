@@ -26,9 +26,21 @@
             <h1 class="navbar-title">acid line</h1>
         </nav>
     </header>
-    <main>     
+    <main>
         <section id="bio-section">
-            <div class="bio-container">
+            <div class="terminal">
+                <div class="term-bar">
+                    <span class="term-title">acid-line@4d55534943:~</span>
+                </div>
+                <div class="term-body">
+                    <div class="prompt-line">
+                        <span class="prompt">~/revolution/acid_line/bio:~$</span>
+                        <span class="output" id="typed-text"></span>
+                        <span class="cursor" id="cursor"></span>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="bio-container">
                 <p>Acid Line es un proyecto que nace de la fusión creativa entre
                 Josué Valles y Luis Farfán, dos músicos peruanos que tienen el
                 eclecticismo como su estandarte.
@@ -45,7 +57,7 @@
                 el trip hop, shoegaze, electrónica y la música cinematográfica, con
                 un concepto emocional y disruptivo cuya temática abordará las
                 conexiones humanas en un futuro distópico.</p>             
-            </div>       
+            </div>        -->
             <div class="image-container">
                 <img src="/assets/images/profile.jpg" alt="Una foto del duo peruano Acid Line">
             </div>
@@ -112,6 +124,8 @@
                 </div>
             </div>
         </section>
+        <section id="influences-section">
+        </section>
         <section id="social-section">
             <div class="instagram-feed">
                 <behold-widget feed-id=""></behold-widget>
@@ -121,6 +135,23 @@
     <footer>
         <p>© 2026 Acid Line. Todos los derechos reservados.</p>
     </footer>
+    <div id="bandcamp-float">
+        <button id="bandcamp-toggle">
+            <svg width="14" height="14" viewBox="0 0 14 14">
+                <polygon points="2,1 13,7 2,13" fill="currentColor" />
+            </svg>
+            Escuchar
+        </button>
+        <div id="bandcamp-panel">
+            <div id="bandcamp-panel-header">
+                <span>Liquid Moon Drops</span>
+                <button id="bandcamp-close">x</button>
+            </div>
+            <div id="bandcamp-iframe-wrap">
+                <iframe style="border: 0; width: 100%; height: 120px;" src="https://bandcamp.com/EmbeddedPlayer/track=2040714491/size=large/bgcol=333333/linkcol=0f91ff/tracklist=false/artwork=small/transparent=true/" seamless><a href="https://acidline-music.bandcamp.com/track/liquid-moon-drops">Liquid Moon Drops de Acid Line</a></iframe>
+            </div>
+        </div>
+    </div>
     <script>
         (() => {
             const d = document, s = d.createElement("script"); s.type = "module";

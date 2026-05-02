@@ -64,6 +64,8 @@ main {
     margin: 0;
 }
 
+
+
 #bio-section {
     padding:  0 150px;
     height: calc(100vh - 130px);
@@ -166,4 +168,141 @@ footer {
 
 footer p {
     margin: 0;
+}
+
+
+/*----- BANDCAMP PLAYER -----*/
+#bandcamp-float {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 9999;
+    font-family: sans-serif;
+}
+
+#bandcamp-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    background: #1a1a1e;
+    color: #e0ddd6;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 13px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    transition: transform 0.15s;
+}
+
+#bandcamp-toggle:hover {
+    transform: translateY(-2px);
+}
+
+#bandcamp-panel {
+    display: none;
+    width: 340px;
+    background: #111113;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+    margin-bottom: 8px;
+    animation: slideUp 0.2s ease;
+}
+
+#bandcamp-panel.open {
+    display: block;
+}
+
+#bandcamp-panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.5);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+#bandcamp-close {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    font-size: 14px;
+    padding: 0;
+    line-height: 1;
+}
+
+#bandcamp-close:hover {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+/*---- Terminal -----*/
+.terminal {
+    background: #0d0d0d;
+    border-radius: 10px;
+    border: 1px solid #333;
+}
+
+.term-bar {
+    background: #1e1e1e;
+    padding: var(--spacing-5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-weight: bold;
+}
+
+.term-body {
+    text-align: start;
+    padding: var(--spacing-4) var(--spacing-4);
+    letter-spacing: 2px;
+}
+
+.prompt {
+    color: #2a73fa;
+    font-family: 'Share Tech Mono', monospace;
+}
+
+.output {
+    color: #c0c0c0;
+    font-family: 'Share Tech Mono', monospace;
+    white-space: pre-wrap;
+}
+
+.cursor {
+    display: inline-block;
+    width: 9px;
+    height: 15px;
+    background: #ffffff;
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
 }
