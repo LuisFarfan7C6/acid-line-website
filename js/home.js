@@ -48,8 +48,8 @@ function type() {
     lineIdx++; charIdx = 0;
     // Añade el \n al INICIO de la siguiente línea, no al final de la actual
     if (lineIdx < lines.length) el.textContent += '\n';
-    timeout = setTimeout(type, 420);
+    timeout = setTimeout(type, 820);
   }
 }
 
-type(); // iniciar al cargar la página
+setTimeout(type, 7000); // iniciar al cargar la página

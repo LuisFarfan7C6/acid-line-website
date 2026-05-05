@@ -101,6 +101,7 @@ main {
     box-shadow: -10px 10px 20px 1px rgba(255, 255, 255, 0.1);
 }
 
+/*----- SINGLE SECTION -----*/
 #single-section {
     padding:  0 150px;
     height: calc(100vh - 130px);
@@ -132,6 +133,29 @@ main {
     display: flex;
     flex-direction: grid;
     gap: 30px;
+}
+
+/*----- INFLUENCES SECTION -----*/
+#influences-section {
+    padding:  0 150px;
+    height: calc(100vh - 130px);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+#influences-section ul{
+    list-style-type: none;;
+}
+
+.influences-text-container {
+    font-size: 1.20rem;
+    line-height: 1.5;
+    text-align: center;
+    color: white;
+    margin: 0;
 }
 
 /*----- SOCIAL SECTION -----*/
@@ -274,6 +298,9 @@ footer p {
     text-align: start;
     padding: var(--spacing-4) var(--spacing-4);
     letter-spacing: 2px;
+    height: 500px;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .prompt {
