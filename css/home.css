@@ -64,11 +64,37 @@ main {
     margin: 0;
 }
 
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    z-index: 1001;
+}
 
+.hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: white;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
 
+/* --- Animación a X cuando está abierto --- */
+.nav-toggle:checked ~ .hamburger span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+.nav-toggle:checked ~ .hamburger span:nth-child(2) {
+    opacity: 0;
+}
+.nav-toggle:checked ~ .hamburger span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/*----- BIO SECTION -----*/
 #bio-section {
-    padding:  0 150px;
-    height: calc(100vh - 130px);
+    padding: 0 clamp(20px, 8vw, 150px);
+    min-height: calc(100vh - 130px);
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-content: center;
@@ -103,8 +129,8 @@ main {
 
 /*----- SINGLE SECTION -----*/
 #single-section {
-    padding:  0 150px;
-    height: calc(100vh - 130px);
+    padding: 0 clamp(20px, 8vw, 150px);
+    min-height: calc(100vh - 130px);
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-content: center;
@@ -135,10 +161,15 @@ main {
     gap: 30px;
 }
 
+.iframe-single {
+    width: 100%;
+    aspect-ratio: 16/9;
+}
+
 /*----- INFLUENCES SECTION -----*/
 #influences-section {
-    padding:  0 150px;
-    height: calc(100vh - 130px);
+    padding: 0 clamp(20px, 8vw, 150px);
+    min-height: calc(100vh - 130px);
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-content: center;
@@ -160,8 +191,8 @@ main {
 
 /*----- SOCIAL SECTION -----*/
 #social-section {
-    padding:  0 150px;
-    height: calc(100vh - 130px);
+    padding: 0 clamp(20px, 8vw, 150px);
+    min-height: calc(100vh - 130px);
     display: grid;
     grid-template-columns: 1fr;
     justify-content: center;
@@ -185,8 +216,8 @@ behold-branding {
 /*----- FOOTER -----*/
 footer {
     margin: 0;
-    padding: 30px 150px;
-    font-size: 1.2rem;
+    padding: 30px clamp(20px, 8vw, 150px);
+    font-size: clamp(0.8rem, 1.2vw, 1.5rem);
     font-weight: 600;
 }
 
@@ -225,7 +256,8 @@ footer p {
 
 #bandcamp-panel {
     display: none;
-    width: 340px;
+    /*width: 340px;*/
+    width: min(340px, calc(100vw - 48px));
     background: #111113;
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 12px;
@@ -277,7 +309,7 @@ footer p {
 
 
 
-/*---- Terminal -----*/
+/*----- TERMINAL -----*/
 .terminal {
     background: #0d0d0d;
     border-radius: 10px;
@@ -298,7 +330,8 @@ footer p {
     text-align: start;
     padding: var(--spacing-4) var(--spacing-4);
     letter-spacing: 2px;
-    height: 500px;
+    /*height: 500px;*/
+    max-height: 500px;
     overflow-x: hidden;
     overflow-y: auto;
 }
@@ -331,5 +364,42 @@ footer p {
 
     50% {
         opacity: 0;
+    }
+}
+
+/*----- MEDIA QUERYS -----*/
+@media (max-width: 768px){
+    /* .navbar {
+        padding: 30px 150px;
+    } */
+
+    .navbar {
+        flex-direction: column;
+        padding: 10px clamp(16px, 5vw, 150px);
+    }
+
+    .hamburger {
+        display: flex;      /* visible solo en móvil */
+    }
+
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease;
+    }
+
+    .nav-toggle:checked ~ .nav-links {
+        max-height: 300px;
+    }
+
+    .nav-links li {
+        margin: 8px 0;
+    }
+
+    #bio-section, #single-section, #influences-section {
+        grid-template-columns: 1fr;
+        gap: 20px;
     }
 }

@@ -12,6 +12,6 @@ body {
   width: 100%;
   min-height: 100vh;
   margin: 0;
-  padding: var(--spacing-10);
+  padding: clamp(var(--spacing-5), 4vw, var(--spacing-10));
   display: flex;
 }

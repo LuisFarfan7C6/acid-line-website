@@ -33,7 +33,7 @@ main {
 }
 
 #title-container h1 {
-  font-size: 100px;
+  font-size: clamp(40px, 10vw, 100px);
   font-weight: 100;
   text-shadow: black 4px 4px 8px;
   margin: 0;
@@ -50,7 +50,8 @@ main {
 
 .single-title {
   margin: 0px;
-  font-size: 5.5rem;
+  /*font-size: 5.5rem;*/
+  font-size: clamp(2rem, 7vw, 5.5rem);
   font-weight: bold;
   position: relative;
   display: inline-block;
@@ -77,11 +78,16 @@ main {
   font-weight: 900;
   border: none;
   height: 50px;
-  width: 150px;
+  /* width: 150px; */
   margin: var(--spacing-6);
   font-size: 15px;
   letter-spacing: var(--spacing-1);
   transition: background-color 0.5s ease;
+
+  min-width: 120px;
+  width: auto;
+  padding: 0 24px;
+
 }
 
 .btn-main-action:hover {
@@ -96,6 +102,8 @@ main {
   display: flex;
   justify-content: center;
   margin: var(--spacing-4) 0;
+  flex-wrap: wrap;
+  gap: var(--spacing-6);
 }
 
 #icons-container a {
@@ -106,7 +114,6 @@ main {
   background-color: var(--home-btn-color);
   width: var(--spacing-9);
   height: var(--spacing-9);
-  margin: 0 var(--spacing-4);
   border-radius: 50%;
   justify-content: center;
   align-items: center;
@@ -163,7 +170,7 @@ main {
 .modal-header {
   background: #26333F;
   color: white;
-  padding: 20px 40px;
+  padding: 20px clamp(16px, 4vw, 40px);
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -379,5 +386,26 @@ main {
       0 0 20px rgba(100, 200, 255, 0.5),
       0 0 30px rgba(100, 200, 255, 0.3),
       0 0 40px rgba(50, 150, 255, 0.2);
+  }
+}
+
+/*----- MEDIA QUERY -----*/
+@media (max-width: 768px){
+  #modal-listen {
+    max-width: 90%;
+  }
+
+  .btn-main-action {
+    margin: var(--spacing-4) var(--spacing-3);
+  }
+
+  .icon-social-container {
+    width: var(--spacing-8);
+    height: var(--spacing-8);
+    padding: var(--spacing-4);
+  }
+
+  #icons-container {
+    gap: var(--spacing-4)
   }
 }
