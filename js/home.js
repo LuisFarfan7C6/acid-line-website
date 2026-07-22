@@ -56,12 +56,12 @@ setTimeout(type, 7000); // iniciar al cargar la página
 
 /*-- MOSAIC RANDOM POSITIONING --*/
 document.addEventListener('DOMContentLoaded', () => {
-    const items = document.querySelectorAll('.mosaic-item');
+    const items = document.querySelectorAll('.mosaic-item-music, .mosaic-item-movie');
     const container = document.querySelector('.mosaic');
 
     items.forEach(item => {
         item.style.top = Math.random() * 70 + '%';
         item.style.left = Math.random() * 80 + '%';
-        item.style.zIndex = Math.floor(Math.random() * 10);
+        item.style.setProperty('--z', Math.floor(Math.random() * 10));
     });
 });
