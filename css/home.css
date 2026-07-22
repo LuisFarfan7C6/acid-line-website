@@ -20,13 +20,13 @@ main {
     width: 100%;
     display: flex;
     flex-direction: row;
-    padding: 30px 150px;
+    padding: 30px clamp(16px, 8vw, 150px);
     background-color: rgba(0, 0, 0, 0.3);
     justify-content: space-between;
     box-shadow: -10px 10px 20px 1px rgba(255, 255, 255, 0.1);
 
     backdrop-filter: blur(16px);
-    height: 15%;
+    min-height: 15%;
     mask-image: linear-gradient(to bottom, black 0% 50%, transparent 50% 100%);
 }
 
@@ -157,7 +157,7 @@ main {
 
 .lyrics-container {
     display: flex;
-    flex-direction: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 30px;
 }
 
@@ -167,7 +167,7 @@ main {
 }
 
 /*----- INFLUENCES SECTION -----*/
-#influences-section {
+/* #influences-section {
     padding: 0 clamp(20px, 8vw, 150px);
     min-height: calc(100vh - 130px);
     display: grid;
@@ -187,6 +187,34 @@ main {
     text-align: center;
     color: white;
     margin: 0;
+} */
+
+#influences-section {
+    padding: 0 clamp(20px, 8vw, 150px);
+    min-height: calc(100vh - 130px);
+    position: relative;
+}
+
+.mosaic {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 600px;
+}
+
+.mosaic-item {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 0;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.mosaic-item:hover {
+    transform: scale(2.5);
+    z-index: 100;
 }
 
 /*----- SOCIAL SECTION -----*/
@@ -369,17 +397,15 @@ footer p {
 
 /*----- MEDIA QUERYS -----*/
 @media (max-width: 768px){
-    /* .navbar {
-        padding: 30px 150px;
-    } */
 
     .navbar {
         flex-direction: column;
-        padding: 10px clamp(16px, 5vw, 150px);
+        overflow: visible;
+        mask-image: none;
     }
 
     .hamburger {
-        display: flex;      /* visible solo en móvil */
+        display: flex;
     }
 
     .nav-links {
@@ -398,8 +424,17 @@ footer p {
         margin: 8px 0;
     }
 
-    #bio-section, #single-section, #influences-section {
+    #bio-section, #single-section {
         grid-template-columns: 1fr;
         gap: 20px;
+    }
+
+    .mosaic-item {
+    width: 80px;
+    height: 80px;
+    }
+
+    .mosaic-item:hover {
+        transform: scale(2);
     }
 }

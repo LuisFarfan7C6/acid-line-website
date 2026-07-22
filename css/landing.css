@@ -42,7 +42,7 @@ main {
 
 /*----- CENTRAL CONTAINER -----*/
 #central-container {
-  font-size: 30px;
+  font-size: clamp(16px, 4vw, 30px);
   font-weight: 900;
   text-shadow: black 2px 2px 5px;
   margin: var(--spacing-8) 0;
@@ -408,4 +408,5 @@ main {
   #icons-container {
     gap: var(--spacing-4)
   }
+
 }
